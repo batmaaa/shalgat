@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(183, 182, 182);
+        }
+        .bag1{
+            width: 100%;
+            height: 80px;
+        }
+        .startitem{
+            justify-content: center;
+            text-align: center;
+        }
+        .od{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        p{
+            text-align: center;
+        }
+        .bag2{
+            width: 100%;
+            height: 88vh;
+            display: flex;
+        }
+        .ch1{
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            margin-top: 25px;
+            margin-left: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+        .ch2{
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            margin-top: 110px;
+            margin-left: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+        .ch3{
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            margin-top: 210px;
+            margin-left: 20px; 
+            justify-content: center;
+            text-align: center;
+        }
+        .ch4{
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            margin-top: 210px;
+            margin-left: 20px; 
+            justify-content: center;
+            text-align: center;
+        }
+        .time{
+            width: 300px;
+            height: 20px;
+        }
+        .toglogchaav{
+            display: flex;
+            
+        }
+        .toglogch{           
+            width: 150px;
+            height: 80px;
+            background-color: aqua;
+            
+        }
+        .onoo{
+            width: 25px;
+            height: 25px;
+            background-color: rgb(105, 215, 99);
+            margin-left: 60px;
+        }
+        .shagnal{
+            width: 500px;
+            height: 500px;
+        }
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px solid #888;
+  width: 460px;
+  height: 280px;
+  font-size: 25px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+  
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: purple;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  color: rgb(0, 0, 0);
+}
+
+.modal-body {padding: 2px 16px;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bag1">
+            <div class="startitem">
+                <button id="handler" onclick="toglolt()" class="od">START SIMULATION</button>
+                <h3 id="display">1/05/2022</h3>
+            </div>
+        </div>
+        <div class="bag2">
+            <div class="item2"><p>Quarterfinals</p>
+                <ul class="ch1">
+                    <div class="timeaav">
+                        <p id="time1" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="manunited" class="toglogch">
+                            <h3 id="t1">Man United</h3>
+                            <div class="onoo" id="man">0</div>
+                        </div>
+                        <div id="mancity" class="toglogch">
+                            <h3 id="t2">Man City</h3>
+                            <div class="onoo" id="manc">0</div>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="ch1">
+                    <div class="timeaav">
+                        <p id="time2" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="chelsea" class="toglogch">
+                            <h3 id="t3">chelsea</h3>
+                            <div class="onoo" id="chel">0</div>
+                        </div>
+                        <div id="everton" class="toglogch">
+                            <h3 id="t4">Everton</h3>
+                            <div class="onoo" id="ever">0</div>
+                        </div>
+                    </div>      
+                </ul>
+                <ul class="ch1">
+                    <div class="timeaav">
+                        <p id="time3" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="bolton" class="toglogch">
+                            <h3 id="t5">Aston Villa</h3>
+                            <div class="onoo" id="aston">0</div>
+                        </div>
+                        <div id="fulham" class="toglogch">
+                            <h3 id="t6">Tottenham</h3>
+                            <div class="onoo" id="totten">0</div>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="ch1">
+                    <div class="timeaav">
+                        <p id="time4" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="barselona" class="toglogch">
+                            <h3 id="t7">Newcastle</h3>
+                            <div class="onoo" id="newcastle">0</div>
+                        </div>
+                        <div id="arsenal" class="toglogch">
+                            <h3 id="t8">Arsenal</h3>
+                            <div class="onoo" id="ars">0</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="item3"><p>Semifinals</p>
+                <ul class="ch2">
+                    <div class="timeaav">
+                        <p id="time5" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="hojil1" class="toglogch">
+                            <h3 id="t9">Winner</h3>
+                            <div class="onoo" id="score1">0</div>
+                        </div>
+                        <div id="hojil2" class="toglogch">
+                            <h3 id="t10">Winner</h3>
+                            <div class="onoo" id="score2">0</div>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="ch2">
+                    <div class="timeaav">
+                        <p id="time6" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="hojil3" class="toglogch">
+                            <h3 id="t11">Winner</h3>
+                            <div class="onoo" id="score3">0</div>
+                        </div>
+                        <div id="hojil4" class="toglogch">
+                            <h3 id="t12">Winner</h3>
+                            <div class="onoo" id="score4">0</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="item4"><p>Bronze Medal game</p>
+                <ul class="ch3">
+                    <div class="timeaav">
+                        <p id="time7" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="hojil5" class="toglogch">
+                            <h3 id="t13">Winner</h3>
+                            <div class="onoo" id="score5">0</div>
+                        </div>
+                        <div id="hojil6" class="toglogch">
+                            <h3 id="t14">Bronze medal</h3>
+                            <div class="onoo" id="score6">0</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="item5"><p>Gold medal game</p>
+                <ul class="ch4">
+                    <div class="timeaav">
+                        <p id="time8" class="time">TBD</p>
+                    </div>
+                    <div class="toglogchaav">
+                        <div id="hojil7" class="toglogch">
+                            <h3 id="t15">Silver medal</h3>
+                            <div class="onoo" id="score7">0</div>
+                        </div>
+                        <div id="hojil8" class="toglogch">
+                            <h3 id="t16">Gold medal</h3>
+                            <div class="onoo" id="score8">0</div>
+                        </div>
+                    </div>
+                </ul>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1>Medal winners</h1>
+                      </div>
+                      <div class="modal-body">
+                          <div id="alt">alt</div>
+                          <div id="mungu">mungu </div>
+                          <div id="hurel">hurel</div>
+                      </div>
+                      <button class="close">Ok</button>
+                    </div>
+                  
+                  </div>
+            </div>
+        </div>
+</div>
+
+</body>.
+    <script>
+        let milliseconds=0;
+        let seconds=1;
+        let minutes=05;
+        let hours=2022;
+        let displaymilliseconds=0;
+        let displayseconds=0;
+        let displayminutes=0;
+        let displayhours=2022;
+        let status='Stopped';
+        let interval='';
+        function toglolt1(){
+            milliseconds++;
+            if(milliseconds/100===1){
+                milliseconds=0;
+                seconds++;
+            if(seconds/30===1){
+                seconds=0;
+                minutes++;
+            if(minutes/60===1){
+                minutes=0;
+                hours++;
+                    }
+                }
+            }
+          
+            if(seconds<10){
+                displayseconds= seconds.toString();
+            }else{
+                displayseconds=seconds;
+            }
+            if(minutes<10){
+                displayminutes='0'+minutes.toString();
+            }else{
+                displayminutes=minutes;
+            }
+
+            document.getElementById('display').innerHTML=displayseconds+'/'+displayminutes+'/'+displayhours;
+                if(time1.innerHTML == display.innerHTML){
+                    document.getElementById('man').innerHTML=generateRandom()+6;
+                    document.getElementById('manc').innerHTML=generateRandom()*3;
+                    if(man.innerHTML > manc.innerHTML){
+                        t9.innerHTML = t1.innerHTML                       
+                    }else{
+                        t9.innerHTML = t2.innerHTML
+                    }
+                };
+                if(time2.innerHTML == display.innerHTML){
+                    document.getElementById('chel').innerHTML=generateRandom()+6;
+                    document.getElementById('ever').innerHTML=generateRandom()*3;
+                    if(chel.innerHTML > ever.innerHTML){
+                        t10.innerHTML = t3.innerHTML
+                        
+                    }else{
+                        t10.innerHTML = t4.innerHTML
+                    }
+                };
+                if(time3.innerHTML == display.innerHTML){
+                    document.getElementById('aston').innerHTML=generateRandom()+6;
+                    document.getElementById('totten').innerHTML=generateRandom()*3;
+                    if(aston.innerHTML > totten.innerHTML){
+                        t11.innerHTML = t5.innerHTML                        
+                    }else{
+                        t11.innerHTML = t6.innerHTML
+                    }
+                };
+                if(time4.innerHTML == display.innerHTML){
+                    document.getElementById('newcastle').innerHTML=generateRandom()+6;
+                    document.getElementById('ars').innerHTML=generateRandom()*3;
+                    if(newcastle.innerHTML > ars.innerHTML){
+                        t12.innerHTML = t7.innerHTML                       
+                    }else{
+                        t12.innerHTML = t8.innerHTML
+                    }
+                };
+                if(time5.innerHTML == display.innerHTML){
+                    document.getElementById('score1').innerHTML=generateRandom()+6;
+                    document.getElementById('score2').innerHTML=generateRandom()*3; 
+                    if(score1.innerHTML > score2.innerHTML){
+                        t15.innerHTML = t9.innerHTML
+                        t13.innerHTML = t10.innerHTML
+                    }else{
+                        t15.innerHTML = t10.innerHTML
+                        t13.innerHTML = t9.innerHTML
+                    }
+                    
+                    }  
+                    if(time6.innerHTML == display.innerHTML){
+                        document.getElementById('score3').innerHTML=generateRandom()+6;
+                        document.getElementById('score4').innerHTML=generateRandom()*3; 
+                    if(score3.innerHTML > score4.innerHTML){
+                        t16.innerHTML = t11.innerHTML
+                        t14.innerHTML = t12.innerHTML
+                    }else{
+                        t16.innerHTML = t12.innerHTML
+                        t14.innerHTML = t11.innerHTML
+                    }
+                    }
+                    if(time7.innerHTML == display.innerHTML){
+                            document.getElementById('score5').innerHTML=generateRandom()+6;
+                            document.getElementById('score6').innerHTML=generateRandom()*3; 
+                        
+                    }
+                    if(time8.innerHTML == display.innerHTML){
+                            document.getElementById('score7').innerHTML=generateRandom()+6;
+                            document.getElementById('score8').innerHTML=generateRandom()*3; 
+                            if(score7.innerHTML > score8.innerHTML){
+                               console.log(t16.innerHTML) 
+                               console.log(t14.innerHTML) 
+                            }else{
+
+                                console.log(t16.innerHTML+' golden medal') 
+                                console.log(t14.innerHTML+' broze medal') 
+                                console.log(t15.innerHTML+' silver medal')
+                    }
+                    
+                            document.getElementById('alt').t16.innerHTML+' golden medal';
+                            document.getElementById('mungu').t15.innerHTML+' silver medal';
+                            document.getElementById('hurel').t14.innerHTML+' broze medal'; 
+                    }
+
+                    }
+                      
+        function toglolt(){
+            if(status=='Stopped'){
+                interval=window.setInterval(toglolt1,10);
+                document.getElementById('handler').innerHTML='Pause';
+                status='Started';
+                document.getElementById('time1').innerHTML=generateRandom()+'/05/2022';
+                document.getElementById('time2').innerHTML=generateRandom()+'/05/2022';
+                document.getElementById('time3').innerHTML=generateRandom()+'/05/2022';
+                document.getElementById('time4').innerHTML=generateRandom()+'/05/2022';
+                document.getElementById('time5').innerHTML=generateRandom1()+'/05/2022';
+                document.getElementById('time6').innerHTML=generateRandom1()+'/05/2022';
+                document.getElementById('time7').innerHTML=generateRandom2()+'/05/2022';
+                document.getElementById('time8').innerHTML=generateRandom3()+'/05/2022';
+
+                
+                
+            }else if(status=='Started'){
+                window.clearInterval(interval);
+                document.getElementById('handler').innerHTML='Start';
+                status='Stopped';
+
+            }
+        }
+        function generateRandom(min = 01, max = 18){
+            let tsag = max - min;
+            let rand = Math.random();
+            rand = Math.floor(rand * tsag);
+            rand = rand + min;
+            return rand;
+        }
+        function generateRandom1(min = 19, max = 24){
+            let tsag = max - min;
+            let rand = Math.random();
+            rand = Math.floor(rand * tsag);
+            rand = rand + min;
+            return rand;
+        }
+        function generateRandom2(min = 25, max = 27){
+            let tsag = max - min;
+            let rand = Math.random();
+            rand = Math.floor(rand * tsag);
+            rand = rand + min;
+            return rand;
+        }
+        function generateRandom3(min = 28, max = 29){
+            let tsag = max - min;
+            let rand = Math.random();
+            rand = Math.floor(rand * tsag);
+            rand = rand + min;
+            return rand;
+        }
+     
+
+
+         var modal = document.getElementById("myModal");
+         var span = document.getElementsByClassName("close")[0];
+         setInterval(neeh = function() {
+         modal.style.display = "block";
+         },30*1000)
+         span.onclick = function() {
+         modal.style.display = "none";
+         }
+         window.onclick = function(event) {
+         if (event.target == modal) {
+            modal.style.display = "none";
+         }
+         }
+              
+         setInterval(function (){      
+            let g = getElementsById("alt");
+            let s = getElementsById("mungu");
+            let b = getElementsById("hurel");
+            a.innerHTML="Gold medal:"+ g.innerHTML;
+            m.innerHTML="Silver medal:"+ s.innerHTML;
+            h.innerHTML="Bronze medal:"+ b.innerHTML;
+         } )
+
+            </script>
+         </html>
